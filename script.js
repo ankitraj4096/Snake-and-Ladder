@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let num = (9 - row) * 10 + col;
             let cell = document.createElement("div");
             cell.classList.add("cell");
-            cell.textContent = num;
             cell.style.position = "relative";
             tempRow.push(cell);
         }

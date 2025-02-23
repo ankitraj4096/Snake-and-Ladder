@@ -82,3 +82,12 @@ body {
 .right-col {
     margin-right: 10px; 
 }
+
+.player {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transition: left 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+

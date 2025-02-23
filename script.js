@@ -1,13 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const board = document.querySelector(".board");
+    const rollDiceButton = document.getElementById("rollDice");
     let cells = [];
     let reverse = true;
+
+    const snakes = {11: 80, 5: 62, 16: 35, 44: 97, 49: 96, 64: 94};
+    const ladders = {94: 65, 98: 51, 72: 51, 38: 9, 31: 12, 57: 15};
 
     for (let row = 9; row >= 0; row--) {
         let tempRow = [];
         for (let col = 0; col < 10; col++) {
+            // let num = (9-row)*10 + col;
             let cell = document.createElement("div");
             cell.classList.add("cell");
+            // cell.textContent = num;
             cell.style.position = "relative"; // Ensure players can be positioned inside
             if (row === 9) cell.classList.add("top-row"); // Top row
             if (row === 0) cell.classList.add("bottom-row"); // Bottom row
@@ -38,10 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updatePosition() {
+            if (snakes[this.position]) {
+                this.position = snakes[this.position];
+            } else if (ladders[this.position]) {
+                this.position = ladders[this.position];
+            }
             cells[this.position].appendChild(this.element);
         }
 
+
         move(steps) {
+            const imageSource = document.getElementById("image");
+            var imageLocation = "../Die Faces/dice-six-faces-" + steps+".svg";
+            imageSource.src = imageLocation;
             var firstDigit = Math.floor(this.position / 10);
             var lastDigit = this.position % 10;
             if(firstDigit % 2 == 0){
@@ -69,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const player2 = new Player("../Player/Player 2.png", 15, 15); // Slightly bottom-right
 
     // Example move logic
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowRight") player1.move(1); // Move player1 forward
-        if (event.key === "ArrowLeft") player2.move(1); // Move player2 forward
+    rollDiceButton.addEventListener("click", () => {
+        const diceRoll = Math.floor(Math.random() * 6) + 1;
+        player1.move(diceRoll);
     });
 });

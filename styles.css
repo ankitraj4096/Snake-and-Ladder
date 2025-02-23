@@ -14,6 +14,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.big {
+    display: flex;
+    align-items: center; /* Aligns game-container and dice-container properly */
+    gap: 20px; /* Adds spacing between the board and dice */
+}
+
 .heading {
     background-color: #ffcccb;
     width: 100%;
@@ -26,15 +32,36 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.dice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.dice-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px; /* Space between dice and button */
+}
+
+#rollDice:hover {
+    background-color: #45a049;
+}
+
 .game-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 650px;
+    height: 500px;
     width: 500px;
     margin-top: 20px;
     background-color: #87CEEB;
-    padding: 10px;
+    padding-bottom: 0; /* Reduce if necessary */
+    margin-bottom: 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

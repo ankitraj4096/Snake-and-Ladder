@@ -30,8 +30,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: 600px;
+    height: 650px;
+    width: 500px;
     margin-top: 20px;
     background-color: #87CEEB;
     padding: 10px;
@@ -42,12 +42,15 @@ body {
 .board {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    width: 500px;
+    height: 500px;
     gap: 2px;
-    width: 100%;
-    height: 100%;
-    background-color: white;
     border: 5px solid #333;
+    background-image: url("https://i.pinimg.com/1200x/bf/e4/3b/bfe43b9ce72f95d1860d0a8e4b4e3f85.jpg");
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 7px; 
 }
 
 .board div {
@@ -58,17 +61,24 @@ body {
     font-weight: bold;
     width: 100%;
     height: 100%;
-    background-color: #ffe066;
-    border: 1px solid #333;
     transition: background 0.3s ease-in-out;
-}
-
-.board div:nth-child(odd) {
-    background-color: #f4a261;
 }
 
 .board div:hover {
     background-color: #ff6347;
     color: white;
     cursor: pointer;
+}
+
+.top-row {
+    margin-top: 6px;
+}
+.bottom-row {
+    margin-bottom: 10px; 
+}
+.left-col {
+    margin-left: 2px;
+}
+.right-col {
+    margin-right: 10px; 
 }
